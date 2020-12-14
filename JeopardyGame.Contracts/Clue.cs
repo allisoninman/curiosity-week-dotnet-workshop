@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace JeopardyGame
+namespace JeopardyGame.Contracts
 {
     public class Clue
     {

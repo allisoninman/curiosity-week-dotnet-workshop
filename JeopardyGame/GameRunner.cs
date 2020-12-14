@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JeopardyGame.Contracts;
+using System;
 
 namespace JeopardyGame
 {
@@ -8,14 +9,23 @@ namespace JeopardyGame
 
         public void PlayJeopardy()
         {
-            Console.WriteLine("This is Jeopardy!");
+            Console.WriteLine(@"
+░░░░░██╗███████╗░█████╗░██████╗░░█████╗░██████╗░██████╗░██╗░░░██╗██╗
+░░░░░██║██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗╚██╗░██╔╝██║
+░░░░░██║█████╗░░██║░░██║██████╔╝███████║██████╔╝██║░░██║░╚████╔╝░██║
+██╗░░██║██╔══╝░░██║░░██║██╔═══╝░██╔══██║██╔══██╗██║░░██║░░╚██╔╝░░╚═╝
+╚█████╔╝███████╗╚█████╔╝██║░░░░░██║░░██║██║░░██║██████╔╝░░░██║░░░██╗
+░╚════╝░╚══════╝░╚════╝░╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░░░░╚═╝░░░╚═╝");
             bool stillPlaying = true;
             while (stillPlaying)
             {
                 Clue clue = jeopardyClient.GetRandomClueAsync().GetAwaiter().GetResult();
+                Console.WriteLine("-----------------------------------------------------");
                 Console.WriteLine($"Category is: {clue.Category.Title}");
-                Console.WriteLine(clue.Question);
+                Console.WriteLine();
+                Console.WriteLine($"Clue: {clue.Question}");
 
+                Console.Write("Answer: ");
                 string answer = Console.ReadLine();
 
                 if (answer.Equals(clue.Answer, StringComparison.OrdinalIgnoreCase))

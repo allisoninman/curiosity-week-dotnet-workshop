@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization;
 
-namespace JeopardyGame
+namespace JeopardyGame.Contracts
 {
     public class Category
     {
