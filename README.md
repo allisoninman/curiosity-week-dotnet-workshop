@@ -1,0 +1,1 @@
+# curiosity-week-dotnet-workshop
